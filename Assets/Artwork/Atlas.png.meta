@@ -1210,6 +1210,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: chest_1
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c48981d06cf34da7950b0ebb29d5442
+      internalID: 1060201184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_0
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6f779b55db56b039624aded063227e
+      internalID: -1372828980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1222,6 +1264,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       pillar_1: 77757428
+      chest_0: -1372828980
       stairs_0: 387902506
       wall_0: -91183131
       torch_0: -274962168
@@ -1244,6 +1287,7 @@ TextureImporter:
       floor_2: 1876948983
       floor_10: -1393618118
       healingFountain_1: 264202916
+      chest_1: 1060201184
       torch_4: -927526727
       pillar_3: 436363036
       floor_6: 1899313520
