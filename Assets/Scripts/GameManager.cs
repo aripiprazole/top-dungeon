@@ -14,10 +14,16 @@ public class GameManager : MonoBehaviour
 
     // Game references
     public Player player;
+    public FloatingTextManager floatingTextManager;
 
     // Logic
     public int pesos;
     public int xp;
+
+    public void ShowText(string message, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
+    {
+        floatingTextManager.Show(message, fontSize, color, position, motion, duration);
+    }
 
     private void SaveState(Scene scene)
     {
