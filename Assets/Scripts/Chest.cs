@@ -12,7 +12,9 @@ public class Chest : Collectable
 
         var spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = emptyChest;
+
+        GameManager.Instance.pesos += pesosAmount;
         
-        Debug.LogFormat("Grant %d pesos!", pesosAmount);
+        Debug.LogFormat("Grant {0} pesos!", pesosAmount);
     }
 }
