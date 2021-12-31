@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class Player : MonoBehaviour
+public class Player : Fighter
 {
     private BoxCollider2D _boxCollider;
     private Vector3 _moveDelta;

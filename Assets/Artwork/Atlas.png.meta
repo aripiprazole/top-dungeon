@@ -1387,7 +1387,7 @@ TextureImporter:
         width: 10
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1395,6 +1395,27 @@ TextureImporter:
       bones: []
       spriteID: 540d0e581e67bda59ab6ac4635b5032d
       internalID: 1506542054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 473080537599c4579bd2379c377acb3b
+      internalID: 1776042789
       vertices: []
       indices: 
       edges: []
@@ -1437,6 +1458,7 @@ TextureImporter:
       floor_10: -1393618118
       healingFountain_1: 264202916
       chest_1: 1060201184
+      enemy_0: 1776042789
       torch_4: -927526727
       weapon_5: 1588980856
       pillar_3: 436363036
