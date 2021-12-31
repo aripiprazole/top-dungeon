@@ -5,7 +5,7 @@ public class Weapon : Collidable
 {
     // Damage
     public int damagePoint = 1;
-    public float pushForce = 2.0f;
+    public float pushForce = 5.0f;
 
     // Upgrade
     public int weaponLevel;

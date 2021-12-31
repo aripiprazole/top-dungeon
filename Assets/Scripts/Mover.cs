@@ -28,6 +28,10 @@ public abstract class Mover : Fighter
             < 0 => new Vector3(-1, 1, 1),
             _ => transformLocal.localScale
         };
+        
+        // Setup push effect
+        moveDelta += PushDirection;
+        PushDirection = Vector3.Lerp(PushDirection, Vector3.zero, pushRecoverySpeed);
 
         // Check if can move by casting a box in the direction that the actor wants to move
         // If the box collider is null, it means that the way is clean and open to move in
