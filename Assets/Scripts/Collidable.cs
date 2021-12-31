@@ -5,7 +5,7 @@ public class Collidable : MonoBehaviour
 {
     public ContactFilter2D filter;
     public BoxCollider2D boxCollider;
-    private readonly Collider2D[] hits = new Collider2D[10];
+    private readonly Collider2D[] _hits = new Collider2D[10];
 
     protected virtual void Start()
     {
@@ -15,14 +15,14 @@ public class Collidable : MonoBehaviour
     protected virtual void Update()
     {
         // Collision work
-        boxCollider.OverlapCollider(filter, hits);
-        for (var i = 0; i < hits.Length; i++)
+        boxCollider.OverlapCollider(filter, _hits);
+        for (var i = 0; i < _hits.Length; i++)
         {
-            if (hits[i] == null) continue;
+            if (_hits[i] == null) continue;
             
-            OnCollide(hits[i]);
+            OnCollide(_hits[i]);
 
-            hits[i] = null;
+            _hits[i] = null;
         }
     }
 
