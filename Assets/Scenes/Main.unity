@@ -2043,6 +2043,18 @@ MonoBehaviour:
           m_StringArgument: ShowMenu
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2033402735}
+        m_TargetAssemblyTypeName: CharacterMenu, Assembly-CSharp
+        m_MethodName: UpdateMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1344600595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17310,7 +17322,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSprites: []
-  weaponSprites: []
+  weaponSprites:
+  - {fileID: -157178370, guid: a32caa2839f227168b03000e134bbd93, type: 3}
+  - {fileID: -450871328, guid: a32caa2839f227168b03000e134bbd93, type: 3}
+  - {fileID: -2016940161, guid: a32caa2839f227168b03000e134bbd93, type: 3}
+  - {fileID: -70305792, guid: a32caa2839f227168b03000e134bbd93, type: 3}
+  - {fileID: -1757788269, guid: a32caa2839f227168b03000e134bbd93, type: 3}
+  - {fileID: 1588980856, guid: a32caa2839f227168b03000e134bbd93, type: 3}
+  - {fileID: 1506542054, guid: a32caa2839f227168b03000e134bbd93, type: 3}
   weaponPrices: 
   xpTable: 
   player: {fileID: 2085992251}
@@ -17914,6 +17933,7 @@ GameObject:
   - component: {fileID: 2033402729}
   - component: {fileID: 2033402733}
   - component: {fileID: 2033402734}
+  - component: {fileID: 2033402735}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -18036,6 +18056,26 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2033402735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033402728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7636338f59304b0788252845e0c087ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelText: {fileID: 783770294}
+  healthText: {fileID: 1186555613}
+  pesosText: {fileID: 817456401}
+  upgradeCostText: {fileID: 1962575717}
+  xpText: {fileID: 931452036}
+  currentCharacterSprite: {fileID: 952290678}
+  weaponSprite: {fileID: 440028973}
+  xpBar: {fileID: 1046707255}
 --- !u!1 &2085992249
 GameObject:
   m_ObjectHideFlags: 0
