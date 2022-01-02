@@ -21,9 +21,10 @@ public class CharacterMenu : MonoBehaviour
 
         if (_currentCharacterSelection >= GameManager.Instance.playerSprites.Count) _currentCharacterSelection = 0;
         if (_currentCharacterSelection <= 0) _currentCharacterSelection = GameManager.Instance.playerSprites.Count - 1;
-        
+
         OnSelectionChanged();
     }
+
     private void OnSelectionChanged()
     {
         currentCharacterSprite.sprite = GameManager.Instance.playerSprites[_currentCharacterSelection];
@@ -31,22 +32,26 @@ public class CharacterMenu : MonoBehaviour
 
     public void OnUpgradeClick()
     {
-        
+        if (!GameManager.Instance.TryUpgradeWeapon()) return;
+
+        UpdateMenu();
     }
 
     public void UpdateMenu()
     {
         var gameManager = GameManager.Instance;
-        
+
         // weapon
-        weaponSprite.sprite = gameManager.weaponSprites[0];
-        upgradeCostText.text = "todo";
+        weaponSprite.sprite = gameManager.weaponSprites[gameManager.weapon.weaponLevel];
+        upgradeCostText.text = gameManager.weapon.weaponLevel >= gameManager.weaponPrices.Count
+            ? "MAX"
+            : gameManager.weaponPrices[gameManager.weapon.weaponLevel].ToString();
 
         // information
         healthText.text = $"{gameManager.player.health} / {gameManager.player.maxHealth}";
         pesosText.text = gameManager.pesos.ToString();
         levelText.text = "todo";
-        
+
         // exp
         xpText.text = "todo";
         xpBar.localScale = new Vector3(0.5f, 0, 0);

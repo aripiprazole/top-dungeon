@@ -10,15 +10,28 @@ public class GameManager : MonoBehaviour
     public List<Sprite> playerSprites;
     public List<Sprite> weaponSprites;
     public List<int> weaponPrices;
+    public List<int> weaponDamagePoints;
+    public List<float> weaponPushForces;
     public List<int> xpTable;
 
     // Game references
     public Player player;
+    public Weapon weapon;
     public FloatingTextManager floatingTextManager;
 
     // Logic
     public int pesos;
     public int xp;
+
+    public bool TryUpgradeWeapon()
+    {
+        if (weapon.weaponLevel >= weaponPrices.Count) return false; // max level
+        if (weaponPrices[weapon.weaponLevel] > pesos) return false; // price
+
+        pesos -= weaponPrices[weapon.weaponLevel];
+        weapon.UpdateWeapon(weapon.weaponLevel + 1);
+        return true;
+    }
 
     public void ShowText(string message, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
     {
@@ -27,10 +40,11 @@ public class GameManager : MonoBehaviour
 
     private void SaveState(Scene scene)
     {
-        PlayerPrefs.SetInt("Preferred Skin", 0);
+        Debug.Log($"Saving weapon {weapon.weaponLevel}");
+        PlayerPrefs.SetInt("PreferredSkin", 0);
         PlayerPrefs.SetInt("Pesos", pesos);
         PlayerPrefs.SetInt("Xp", xp);
-        PlayerPrefs.SetInt("Weapon Level", 0);
+        PlayerPrefs.SetInt("WeaponLevel", weapon.weaponLevel);
     }
 
     private void LoadState(Scene scene, LoadSceneMode mode)
@@ -38,7 +52,7 @@ public class GameManager : MonoBehaviour
         // Change player skin
         if (PlayerPrefs.HasKey("Pesos")) pesos = PlayerPrefs.GetInt("Pesos");
         if (PlayerPrefs.HasKey("Xp")) xp = PlayerPrefs.GetInt("Xp");
-        // Change weapon level
+        if (PlayerPrefs.HasKey("WeaponLevel")) weapon.UpdateWeapon(PlayerPrefs.GetInt("WeaponLevel"));
     }
 
     private void Awake()

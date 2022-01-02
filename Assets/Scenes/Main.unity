@@ -848,6 +848,7 @@ MonoBehaviour:
   damagePoint: 1
   pushForce: 5
   weaponLevel: 0
+  spriteRenderer: {fileID: 445662278}
   cooldown: 0.5
 --- !u!95 &445662281
 Animator:
@@ -17330,9 +17331,19 @@ MonoBehaviour:
   - {fileID: -1757788269, guid: a32caa2839f227168b03000e134bbd93, type: 3}
   - {fileID: 1588980856, guid: a32caa2839f227168b03000e134bbd93, type: 3}
   - {fileID: 1506542054, guid: a32caa2839f227168b03000e134bbd93, type: 3}
-  weaponPrices: 
+  weaponPrices: 1e0000004600000082000000c80000001301000090010000
+  weaponDamagePoints: 01000000020000000300000004000000050000000600000007000000
+  weaponPushForces:
+  - 2
+  - 2.2
+  - 2.6
+  - 3
+  - 3.2
+  - 3.6
+  - 4
   xpTable: 
   player: {fileID: 2085992251}
+  weapon: {fileID: 445662280}
   floatingTextManager: {fileID: 151319730}
   pesos: 0
   xp: 0
@@ -17880,7 +17891,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2030704212}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2033402735}
+        m_TargetAssemblyTypeName: CharacterMenu, Assembly-CSharp
+        m_MethodName: OnUpgradeClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2030704212
 MonoBehaviour:
   m_ObjectHideFlags: 0

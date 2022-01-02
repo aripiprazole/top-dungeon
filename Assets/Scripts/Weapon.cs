@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
@@ -9,20 +10,18 @@ public class Weapon : Collidable
 
     // Upgrade
     public int weaponLevel;
-    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     // Swing
     public float cooldown = 0.5f;
     private float _lastSwing;
     private Animator _anim;
-    
+
     private static readonly int Anim = Animator.StringToHash("Swing");
 
     protected override void Start()
     {
         base.Start();
-
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _anim = GetComponent<Animator>();
     }
 
@@ -49,5 +48,15 @@ public class Weapon : Collidable
     private void Swing()
     {
         _anim.SetTrigger(Anim);
+    }
+
+    public void UpdateWeapon(int level)
+    {
+        Debug.Log($"Updating weapon to {level}");
+        weaponLevel = level;
+        
+        damagePoint = GameManager.Instance.weaponDamagePoints[weaponLevel];
+        pushForce = GameManager.Instance.weaponPushForces[weaponLevel];
+        spriteRenderer.sprite = GameManager.Instance.weaponSprites[weaponLevel];
     }
 }
