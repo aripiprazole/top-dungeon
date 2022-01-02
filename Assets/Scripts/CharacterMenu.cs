@@ -22,12 +22,8 @@ public class CharacterMenu : MonoBehaviour
         if (_currentCharacterSelection >= GameManager.Instance.playerSprites.Count) _currentCharacterSelection = 0;
         if (_currentCharacterSelection <= 0) _currentCharacterSelection = GameManager.Instance.playerSprites.Count - 1;
 
-        OnSelectionChanged();
-    }
-
-    private void OnSelectionChanged()
-    {
         currentCharacterSprite.sprite = GameManager.Instance.playerSprites[_currentCharacterSelection];
+        GameManager.Instance.player.SwapSprite(_currentCharacterSelection);
     }
 
     public void OnUpgradeClick()
