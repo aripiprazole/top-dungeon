@@ -10,6 +10,12 @@ public class Player : Mover
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    public void OnLevelUp()
+    {
+        maxHealth += 2;
+        health = maxHealth;
+    }
+
     public void SwapSprite(int currentSelection)
     {
         _spriteRenderer.sprite = GameManager.Instance.playerSprites[currentSelection];

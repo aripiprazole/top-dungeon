@@ -17367,7 +17367,7 @@ MonoBehaviour:
   - 3.2
   - 3.6
   - 4
-  xpTable: 
+  xpTable: 050000000a00000011000000190000001e0000002800000037000000460000005a00000078000000
   player: {fileID: 2085992251}
   weapon: {fileID: 445662280}
   floatingTextManager: {fileID: 151319730}

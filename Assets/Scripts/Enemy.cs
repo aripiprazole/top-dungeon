@@ -48,7 +48,7 @@ public class Enemy : Mover
 
     protected override void Die()
     {
-        GameManager.Instance.xp += xpValue;
+        GameManager.Instance.GrantXp(xpValue);
         GameManager.Instance.ShowText($"+{xpValue} exp", 25, Color.magenta, transform.position, Vector3.up * 40, 0.5f);
 
         Destroy(gameObject);

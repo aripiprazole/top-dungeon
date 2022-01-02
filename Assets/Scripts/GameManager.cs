@@ -24,6 +24,44 @@ public class GameManager : MonoBehaviour
     public int pesos;
     public int xp;
 
+    public void GrantXp(int value)
+    {
+        var currentLevel = CalculateCurrentLevel();
+        xp += value;
+
+        if (currentLevel < CalculateCurrentLevel())
+            player.OnLevelUp();
+    }
+
+    public int CalculateCurrentLevel()
+    {
+        var result = 0;
+        var add = 0;
+        while (xp >= add)
+        {
+            add += xpTable[result];
+            result++;
+
+            if (result == xpTable.Count) return result;
+        }
+
+        return result;
+    }
+
+    public int GetXpToLevel(int level)
+    {
+        var result = 0;
+        var localXp = 0;
+
+        while (result < level)
+        {
+            localXp += xpTable[result];
+            result++;
+        }
+
+        return localXp;
+    }
+
     public bool TryUpgradeWeapon()
     {
         if (weapon.weaponLevel >= weaponPrices.Count) return false; // max level
@@ -55,8 +93,17 @@ public class GameManager : MonoBehaviour
             currentCharacterSelection = PlayerPrefs.GetInt("PreferredSkin");
             player.SwapSprite(currentCharacterSelection);
         }
+
+        if (PlayerPrefs.HasKey("Xp"))
+        {
+            xp = PlayerPrefs.GetInt("Xp");
+            var level = CalculateCurrentLevel();
+            if (level > 1)
+                for (var i = 0; i < level; i++)
+                    player.OnLevelUp();
+        }
+
         if (PlayerPrefs.HasKey("Pesos")) pesos = PlayerPrefs.GetInt("Pesos");
-        if (PlayerPrefs.HasKey("Xp")) xp = PlayerPrefs.GetInt("Xp");
         if (PlayerPrefs.HasKey("WeaponLevel")) weapon.UpdateWeapon(PlayerPrefs.GetInt("WeaponLevel"));
     }
 
