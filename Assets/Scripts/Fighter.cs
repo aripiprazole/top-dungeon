@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Fighter : MonoBehaviour
 {
+    private const float ImmuneTime = 1.0f;
+    
     public int health = 10;
     public int maxHealth = 10;
     public float pushRecoverySpeed = 0.2f;
 
     // Immunity
-    protected float ImmuneTime = 1.0f;
-    protected float LastImmune;
+    private float _lastImmune;
 
     // Push
     protected Vector3 PushDirection;
@@ -17,10 +18,10 @@ public class Fighter : MonoBehaviour
     {
         var position = transform.position;
 
-        if (Time.time - LastImmune < ImmuneTime) return;
+        if (Time.time - _lastImmune < ImmuneTime) return;
 
         health -= damage.Amount;
-        LastImmune = Time.time;
+        _lastImmune = Time.time;
 
         PushDirection = (position - damage.Origin).normalized * damage.PushForce;
 
