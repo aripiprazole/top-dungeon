@@ -52,7 +52,6 @@ public class Weapon : Collidable
 
     public void UpdateWeapon(int level)
     {
-        Debug.Log($"Updating weapon to {level}");
         weaponLevel = level;
         
         damagePoint = GameManager.Instance.weaponDamagePoints[weaponLevel];

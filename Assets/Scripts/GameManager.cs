@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public List<int> xpTable;
 
     // Game references
+    public int currentCharacterSelection;
     public Player player;
     public Weapon weapon;
     public FloatingTextManager floatingTextManager;
@@ -40,8 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void SaveState(Scene scene)
     {
-        Debug.Log($"Saving weapon {weapon.weaponLevel}");
-        PlayerPrefs.SetInt("PreferredSkin", 0);
+        PlayerPrefs.SetInt("PreferredSkin", currentCharacterSelection);
         PlayerPrefs.SetInt("Pesos", pesos);
         PlayerPrefs.SetInt("Xp", xp);
         PlayerPrefs.SetInt("WeaponLevel", weapon.weaponLevel);
@@ -50,6 +50,11 @@ public class GameManager : MonoBehaviour
     private void LoadState(Scene scene, LoadSceneMode mode)
     {
         // Change player skin
+        if (PlayerPrefs.HasKey("PreferredSkin"))
+        {
+            currentCharacterSelection = PlayerPrefs.GetInt("PreferredSkin");
+            player.SwapSprite(currentCharacterSelection);
+        }
         if (PlayerPrefs.HasKey("Pesos")) pesos = PlayerPrefs.GetInt("Pesos");
         if (PlayerPrefs.HasKey("Xp")) xp = PlayerPrefs.GetInt("Xp");
         if (PlayerPrefs.HasKey("WeaponLevel")) weapon.UpdateWeapon(PlayerPrefs.GetInt("WeaponLevel"));

@@ -12,18 +12,20 @@ public class CharacterMenu : MonoBehaviour
     public Image currentCharacterSprite;
     public Image weaponSprite;
     public RectTransform xpBar;
-    private int _currentCharacterSelection;
 
     public void OnArrowClick(bool direction)
     {
-        if (direction) _currentCharacterSelection++;
-        else _currentCharacterSelection--;
+        if (direction) GameManager.Instance.currentCharacterSelection++;
+        else GameManager.Instance.currentCharacterSelection--;
 
-        if (_currentCharacterSelection >= GameManager.Instance.playerSprites.Count) _currentCharacterSelection = 0;
-        if (_currentCharacterSelection <= 0) _currentCharacterSelection = GameManager.Instance.playerSprites.Count - 1;
+        if (GameManager.Instance.currentCharacterSelection >= GameManager.Instance.playerSprites.Count) 
+            GameManager.Instance.currentCharacterSelection = 0;
+        
+        if (GameManager.Instance.currentCharacterSelection <= 0) 
+            GameManager.Instance.currentCharacterSelection = GameManager.Instance.playerSprites.Count - 1;
 
-        currentCharacterSprite.sprite = GameManager.Instance.playerSprites[_currentCharacterSelection];
-        GameManager.Instance.player.SwapSprite(_currentCharacterSelection);
+        currentCharacterSprite.sprite = GameManager.Instance.playerSprites[GameManager.Instance.currentCharacterSelection];
+        GameManager.Instance.player.SwapSprite(GameManager.Instance.currentCharacterSelection);
     }
 
     public void OnUpgradeClick()

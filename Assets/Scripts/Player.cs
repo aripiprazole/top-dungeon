@@ -1,12 +1,12 @@
+using System;
 using UnityEngine;
 
 public class Player : Mover
 {
     private SpriteRenderer _spriteRenderer;
 
-    protected override void Start()
+    private void Awake()
     {
-        base.Start();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
